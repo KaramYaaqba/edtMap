@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>EDT WWW</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 60px; bottom: 0; width: 100%; }
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button-blue {background-color: #008CBA;} /* Blue */
+.button-gray {background-color: #e7e7e7; color: black;} /* Gray */ 
+</style>
+</head>
+<body>
+<button class="button" onclick="window.location.href='index.html'">Show All Schools</button>
+<button class="button button-blue" onclick="window.location.href='reporting.html'">Only Reporting Schools</button>
+<button class="button button-gray" onclick="window.location.href='notreporting.html'">Only Not Reporting Schools</button>
+<div id="map">
+
+</div>
+ 
+<script>
+	mapboxgl.accessToken = 'pk.eyJ1Ijoia3lhYXFiYSIsImEiOiJja254Y3BsOHEwa3VsMnBudmlrYmRkd3pxIn0.K1mY74C4LEwwz8f0aYsaXQ';
+const map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [39,1],
+zoom: 6
+});
+map.addControl(new mapboxgl.NavigationControl());
+ 
+// Create a default Marker and add it to the map.
+const marker1 = new mapboxgl.Marker().setLngLat([39.6431, -4.10623]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>TULIYA MOYO CHERRY’S ACADEMY PRIMARY SCHOOL</h3>'));
+const marker2 = new mapboxgl.Marker().setLngLat([39.66663, -4.08893]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>ABIDA LANGO ACADEMY</h3>'));
+const marker3 = new mapboxgl.Marker().setLngLat([40.20948, -2.33589]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>GALILI PRIMARY SCHOOL</h3>'));
+const marker4 = new mapboxgl.Marker().setLngLat([40.138355, -2.640644]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>HURARA PRIMARY SCHOOL</h3>'));
+const marker5 = new mapboxgl.Marker().setLngLat([40.464216, -2.430936]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>MAPUNGA</h3>'));
+const marker6 = new mapboxgl.Marker().setLngLat([40.429653, -2.435317]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>RIKETA</h3>'));
+const marker7 = new mapboxgl.Marker().setLngLat([40.25869, -2.491885]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>HANDARAKU</h3>'));
+const marker8 = new mapboxgl.Marker().setLngLat([40.29738, -2.49894]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>KIKOMO</h3>'));
+const marker9 = new mapboxgl.Marker().setLngLat([39.630354, -0.461212]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>HATATA</h3>'));
+const marker10 = new mapboxgl.Marker().setLngLat([39.79406, -1.04194]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>BILBIL</h3>'));
+const marker11 = new mapboxgl.Marker().setLngLat([39.661986, -0.77874]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>WEKOYE</h3>'));
+const marker12 = new mapboxgl.Marker().setLngLat([39.99224, -1.29608]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>DAKU</h3>'));
+const marker13 = new mapboxgl.Marker().setLngLat([39.96979, -1.2536]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>KUMBI</h3>'));
+const marker14 = new mapboxgl.Marker().setLngLat([39.995223, -1.417926]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>BAHATI</h3>'));
+const marker15 = new mapboxgl.Marker().setLngLat([40.01458, -1.39495]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>BOHONI</h3>'));
+const marker16 = new mapboxgl.Marker().setLngLat([39.743502, -3.822176]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>KOLEWA</h3>'));
+const marker17 = new mapboxgl.Marker().setLngLat([36.783067, -1.312625]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>RAILA ED CENTRE</h3>'));
+const marker18 = new mapboxgl.Marker().setLngLat([36.918389, -1.269089]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>IMARA</h3>'));
+const marker19 = new mapboxgl.Marker().setLngLat([36.853225, -1.284739]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>GLORIOUS JUNIOR</h3>'));
+const marker20 = new mapboxgl.Marker().setLngLat([36.883199, -1.263456]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>PCEA KARIOBANGI NORTH</h3>'));
+const marker21 = new mapboxgl.Marker().setLngLat([36.881221, -1.253765]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>PCEA KARIOBANGI NORTH</h3>'));
+const marker22 = new mapboxgl.Marker().setLngLat([36.916146, -1.278304]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>THAWABU PRIMARY</h3>'));
+const marker23 = new mapboxgl.Marker().setLngLat([36.910896, -1.241307]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>AGANO JUNIOR</h3>'));
+const marker24 = new mapboxgl.Marker().setLngLat([36.826332, -1.312305]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>FAULU EDUCATION CENTRE</h3>'));
+const marker25 = new mapboxgl.Marker().setLngLat([36.902128, -1.241259]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>IMPERIAL JUNIOR</h3>'));
+const marker26 = new mapboxgl.Marker().setLngLat([36.923499, -1.265741]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>CARMEL CENTRE SCHOOL</h3>'));
+const marker27 = new mapboxgl.Marker().setLngLat([36.879991, -1.248191]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>MT KENYA</h3>'));
+const marker28 = new mapboxgl.Marker().setLngLat([36.863572, -1.310049]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>LITTLE BELLS</h3>'));
+
+
+</script>
+ 
+</body>
+</html>
