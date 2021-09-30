@@ -7,6 +7,32 @@
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
 <style>
+
+.legend {
+	background-color: #fff;
+	border-radius: 3px;
+	bottom: 30px;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+	font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	padding: 10px;
+	position: absolute;
+	right: 10px;
+	z-index: 1;
+}
+ 
+.legend h4 {
+	margin: 0 0 10px;
+}
+ 
+.legend div span {
+	border-radius: 50%;
+	display: inline-block;
+	height: 10px;
+	margin-right: 5px;
+	width: 10px;
+}
+
+
 body { margin: 0; padding: 0; }
 #map { position: absolute; top: 60px; bottom: 0; width: 100%; }
 .button {
@@ -38,6 +64,23 @@ body { margin: 0; padding: 0; }
 
 </div>
  
+ <div id="state-legend" class="legend">
+<h4>Schools</h4>
+<div><span>
+<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+width="16" height="16"
+viewBox="0 0 172 172"
+style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M85.99785,161.809c-6.6177,-7.2756 -52.67285,-59.4002 -52.67285,-100.25235c0,-28.6079 23.6285,-51.88165 52.675,-51.88165c29.0465,0 52.675,23.27375 52.675,51.88165c0,40.65005 -46.06375,92.95525 -52.67715,100.25235z" fill="#2ecc71"></path><path d="M86,10.75c28.4531,0 51.6,22.79215 51.6,50.8088c0,38.90425 -42.80435,88.8036 -51.60215,98.6463c-8.8064,-9.8169 -51.59785,-59.5507 -51.59785,-98.6463c0,-28.01665 23.1469,-50.8088 51.6,-50.8088M86,8.6c-29.68505,0 -53.75,23.7102 -53.75,52.9588c0,44.7329 53.75,101.8412 53.75,101.8412c0,0 53.75,-57.3319 53.75,-101.8412c0,-29.2486 -24.06495,-52.9588 -53.75,-52.9588z" fill="#2ecc71"></path><g><path d="M86,80.625c-11.2617,0 -20.425,-9.1633 -20.425,-20.425c0,-11.2617 9.1633,-20.425 20.425,-20.425c11.2617,0 20.425,9.1633 20.425,20.425c0,11.2617 -9.1633,20.425 -20.425,20.425z" fill="#f2faff"></path><path d="M86,40.85c10.68765,0 19.35,8.66235 19.35,19.35c0,10.68765 -8.66235,19.35 -19.35,19.35c-10.68765,0 -19.35,-8.66235 -19.35,-19.35c0,-10.68765 8.66235,-19.35 19.35,-19.35M86,38.7c-11.8551,0 -21.5,9.6449 -21.5,21.5c0,11.8551 9.6449,21.5 21.5,21.5c11.8551,0 21.5,-9.6449 21.5,-21.5c0,-11.8551 -9.6449,-21.5 -21.5,-21.5z" fill="#2ecc71"></path></g></g></g></svg>
+</span>Reporting School</div>
+<div><span>
+<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+width="16" height="16"
+viewBox="0 0 172 172"
+style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,172v-172h172v172z" fill="none"></path><g><path d="M85.99785,161.809c-6.6177,-7.2756 -52.67285,-59.4002 -52.67285,-100.25235c0,-28.6079 23.6285,-51.88165 52.675,-51.88165c29.0465,0 52.675,23.27375 52.675,51.88165c0,40.65005 -46.06375,92.95525 -52.67715,100.25235z" fill="#666666"></path><path d="M86,10.75c28.4531,0 51.6,22.79215 51.6,50.8088c0,38.90425 -42.80435,88.8036 -51.60215,98.6463c-8.8064,-9.8169 -51.59785,-59.5507 -51.59785,-98.6463c0,-28.01665 23.1469,-50.8088 51.6,-50.8088M86,8.6c-29.68505,0 -53.75,23.7102 -53.75,52.9588c0,44.7329 53.75,101.8412 53.75,101.8412c0,0 53.75,-57.3319 53.75,-101.8412c0,-29.2486 -24.06495,-52.9588 -53.75,-52.9588z" fill="#666666"></path><g><path d="M86,80.625c-11.2617,0 -20.425,-9.1633 -20.425,-20.425c0,-11.2617 9.1633,-20.425 20.425,-20.425c11.2617,0 20.425,9.1633 20.425,20.425c0,11.2617 -9.1633,20.425 -20.425,20.425z" fill="#f2faff"></path><path d="M86,40.85c10.68765,0 19.35,8.66235 19.35,19.35c0,10.68765 -8.66235,19.35 -19.35,19.35c-10.68765,0 -19.35,-8.66235 -19.35,-19.35c0,-10.68765 8.66235,-19.35 19.35,-19.35M86,38.7c-11.8551,0 -21.5,9.6449 -21.5,21.5c0,11.8551 9.6449,21.5 21.5,21.5c11.8551,0 21.5,-9.6449 21.5,-21.5c0,-11.8551 -9.6449,-21.5 -21.5,-21.5z" fill="#666666"></path></g></g></g></svg>
+</span>Not Reporting School</div>
+</div>
+ 
+
 <script>
 	mapboxgl.accessToken = 'pk.eyJ1Ijoia3lhYXFiYSIsImEiOiJja254Y3BsOHEwa3VsMnBudmlrYmRkd3pxIn0.K1mY74C4LEwwz8f0aYsaXQ';
 const map = new mapboxgl.Map({
@@ -49,34 +92,35 @@ zoom: 6
 map.addControl(new mapboxgl.NavigationControl());
  
 // Create a default Marker and add it to the map.
-const marker1 = new mapboxgl.Marker().setLngLat([39.6431, -4.10623]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>TULIYA MOYO CHERRY’S ACADEMY PRIMARY SCHOOL</h3>'));
-const marker2 = new mapboxgl.Marker().setLngLat([39.66663, -4.08893]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>ABIDA LANGO ACADEMY</h3>'));
-const marker3 = new mapboxgl.Marker().setLngLat([40.20948, -2.33589]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>GALILI PRIMARY SCHOOL</h3>'));
-const marker4 = new mapboxgl.Marker().setLngLat([40.138355, -2.640644]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>HURARA PRIMARY SCHOOL</h3>'));
-const marker5 = new mapboxgl.Marker().setLngLat([40.464216, -2.430936]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>MAPUNGA</h3>'));
-const marker6 = new mapboxgl.Marker().setLngLat([40.429653, -2.435317]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>RIKETA</h3>'));
-const marker7 = new mapboxgl.Marker().setLngLat([40.25869, -2.491885]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>HANDARAKU</h3>'));
-const marker8 = new mapboxgl.Marker().setLngLat([40.29738, -2.49894]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>KIKOMO</h3>'));
-const marker9 = new mapboxgl.Marker().setLngLat([39.630354, -0.461212]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>HATATA</h3>'));
-const marker10 = new mapboxgl.Marker().setLngLat([39.79406, -1.04194]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>BILBIL</h3>'));
-const marker11 = new mapboxgl.Marker().setLngLat([39.661986, -0.77874]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>WEKOYE</h3>'));
-const marker12 = new mapboxgl.Marker().setLngLat([39.99224, -1.29608]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>DAKU</h3>'));
-const marker13 = new mapboxgl.Marker().setLngLat([39.96979, -1.2536]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>KUMBI</h3>'));
-const marker14 = new mapboxgl.Marker().setLngLat([39.995223, -1.417926]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>BAHATI</h3>'));
-const marker15 = new mapboxgl.Marker().setLngLat([40.01458, -1.39495]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>BOHONI</h3>'));
-const marker16 = new mapboxgl.Marker().setLngLat([39.743502, -3.822176]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>KOLEWA</h3>'));
-const marker17 = new mapboxgl.Marker().setLngLat([36.783067, -1.312625]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>RAILA ED CENTRE</h3>'));
-const marker18 = new mapboxgl.Marker().setLngLat([36.918389, -1.269089]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>IMARA</h3>'));
-const marker19 = new mapboxgl.Marker().setLngLat([36.853225, -1.284739]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>GLORIOUS JUNIOR</h3>'));
-const marker20 = new mapboxgl.Marker().setLngLat([36.883199, -1.263456]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>PCEA KARIOBANGI NORTH</h3>'));
-const marker21 = new mapboxgl.Marker().setLngLat([36.881221, -1.253765]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>PCEA KARIOBANGI NORTH</h3>'));
-const marker22 = new mapboxgl.Marker().setLngLat([36.916146, -1.278304]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>THAWABU PRIMARY</h3>'));
-const marker23 = new mapboxgl.Marker().setLngLat([36.910896, -1.241307]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>AGANO JUNIOR</h3>'));
-const marker24 = new mapboxgl.Marker().setLngLat([36.826332, -1.312305]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>FAULU EDUCATION CENTRE</h3>'));
-const marker25 = new mapboxgl.Marker().setLngLat([36.902128, -1.241259]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>IMPERIAL JUNIOR</h3>'));
-const marker26 = new mapboxgl.Marker().setLngLat([36.923499, -1.265741]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>CARMEL CENTRE SCHOOL</h3>'));
-const marker27 = new mapboxgl.Marker().setLngLat([36.879991, -1.248191]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>MT KENYA</h3>'));
-const marker28 = new mapboxgl.Marker().setLngLat([36.863572, -1.310049]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>LITTLE BELLS</h3>'));
+const marker10 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([39.6431, -4.10623]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>TULIYA MOYO CHERRY’S ACADEMY PRIMARY SCHOOL</br> Mombasa</h3>'));
+const marker11 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([39.66663, -4.08893]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>ABIDA LANGO ACADEMY</br> Mombasa</h3>'));
+const marker36 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([40.20948, -2.33589]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>GALILI PRIMARY SCHOOL</br> Tana River</h3>'));
+const marker37 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([40.138355, -2.640644]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>HURARA PRIMARY SCHOOL</br> Tana River</h3>'));
+const marker44 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([40.464216, -2.430936]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>MAPUNGA</br> Tana River</h3>'));
+const marker45 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([40.429653, -2.435317]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>RIKETA</br> Tana River</h3>'));
+const marker48 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([40.25869, -2.491885]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>HANDARAKU</br> Tana River</h3>'));
+const marker49 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([40.29738, -2.49894]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>KIKOMO</br> Tana River</h3>'));
+const marker59 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([39.630354, -0.461212]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>HATATA</br> Tana River</h3>'));
+const marker60 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([39.79406, -1.04194]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>BILBIL</br> Tana River</h3>'));
+const marker61 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([39.661986, -0.77874]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>WEKOYE</br> Tana River</h3>'));
+const marker78 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([39.99224, -1.29608]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>DAKU</br> Tana River</h3>'));
+const marker79 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([39.96979, -1.2536]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>KUMBI</br> Tana River</h3>'));
+const marker88 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([39.995223, -1.417926]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>BAHATI</br> Tana River</h3>'));
+const marker89 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([40.01458, -1.39495]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>BOHONI</br> Tana River</h3>'));
+const marker137 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([39.743502, -3.822176]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>KOLEWA</br> Kilifi</h3>'));
+const marker260 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([36.783067, -1.312625]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>RAILA ED CENTRE</br> Nairobi</h3>'));
+const marker271 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([36.918389, -1.269089]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>IMARA</br> Nairobi</h3>'));
+const marker302 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([36.853225, -1.284739]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>GLORIOUS JUNIOR</br> Nairobi</h3>'));
+const marker303 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([36.883199, -1.263456]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>PCEA KARIOBANGI NORTH</br> Nairobi</h3>'));
+const marker304 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([36.881221, -1.253765]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>PCEA KARIOBANGI NORTH</br> Nairobi</h3>'));
+const marker306 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([36.916146, -1.278304]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>THAWABU PRIMARY</br> Nairobi</h3>'));
+const marker314 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([36.910896, -1.241307]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>AGANO JUNIOR</br> Nairobi</h3>'));
+const marker315 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([36.826332, -1.312305]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>FAULU EDUCATION CENTRE</br> Nairobi</h3>'));
+const marker316 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([36.902128, -1.241259]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>IMPERIAL JUNIOR</br> Nairobi</h3>'));
+const marker340 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([36.923499, -1.265741]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>CARMEL CENTRE SCHOOL</br> Nairobi</h3>'));
+const marker349 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([36.879991, -1.248191]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>MT KENYA</br> Nairobi</h3>'));
+const marker351 = new mapboxgl.Marker({color: '#4CAF50'}).setLngLat([36.863572, -1.310049]).addTo(map).setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<h3>LITTLE BELLS</br> Nairobi</h3>'));
+
 
 
 </script>
